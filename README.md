@@ -1,2 +1,2 @@
 # Programmer-website
-Website to finde ther programmer
+Website to find the programmer
