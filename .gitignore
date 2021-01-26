@@ -1,0 +1,8 @@
+# Project
+*.db
+
+# IDE
+.vscode
+
+# Pyhton
+__pycache__
