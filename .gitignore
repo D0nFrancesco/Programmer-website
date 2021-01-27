@@ -1,8 +1,13 @@
 # Project
 *.sqlite3
+build
 
 # IDE
 .vscode
 
 # Pyhton
 __pycache__
+
+# Node
+.eslintcache
+node_modules

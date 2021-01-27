@@ -1,0 +1,43 @@
+/* CSS for components */
+
+
+/* CARD */
+.card {
+    background-color: #3C3C3C;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card h3, .card h2 {
+    font-weight: lighter;
+}
+
+/* FORM & INPUT */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: lighter;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    background-color: #282828;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+form input:focus, form textarea {
+    border-bottom: 2px solid #FFC83A;
+    border-radius: 5px 5px 0px 0px;
+}
+
+form input.submit {
+
+}
