@@ -1,0 +1,5 @@
+# django
+django
+
+# for user authentication (password hashing)
+bcrypt
