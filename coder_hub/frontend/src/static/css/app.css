@@ -7,8 +7,27 @@
     color: white;
 }
 
-body, html {
+body, html, #root {
     scroll-behavior: smooth;
     height: 100%;
-    background-color: #282828;
+    background-color: #161616;
+}
+
+/* Some standard classes */
+.no-link {
+    color: white;
+    text-decoration: none;
+}
+
+button, .button, .small-button {
+    background-color: #FFC83A;
+    color: #161616;
+    font-weight: bold;
+    width: 100%;
+    padding: 5px;
+}
+
+.small-button {
+    width: fit-content;
+    padding: 5px 20px;
 }
