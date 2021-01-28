@@ -1,27 +1,47 @@
+// React
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+// Pages
+import Index from './pages/index.js';
+import Projects from './pages/projects.js'
+import Social from './pages/social.js'
+import Login from './pages/login.js'
+import Register from './pages/register.js'
+
+
+// Components
+import Header from './components/header.js';
+
+// CSS
 import './static/css/app.css';
-import './static/css/components/form.css';
-import './static/css/components/card.css';
 
 
 function App() {
   return (
-    <div className="App">
-      <div className="card" style={{width: "500px"}}>
-        <h3>Login</h3>
-        <div style={{height: "10px"}}></div>
-        <form>
-          <label htmlFor="name_input">Name</label>
-          <input type="text" name="name" id="name_input" placeholder="name" />
-          <div style={{height: "10px"}}></div>
-
-          <label htmlFor="password_input">Password</label>
-          <input type="password" name="name" id="password_input" placeholder="password" />
-          <div style={{height: "10px"}}></div>
-
-          <input className="submit button" type="submit" value="Login"/>
-        </form>
-      </div>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/projects">
+          <Projects />
+        </Route>
+        <Route path="/social">
+          <Social />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/">
+          <Index />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
