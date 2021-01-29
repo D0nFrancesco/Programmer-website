@@ -7,8 +7,10 @@ build
 
 # Pyhton
 __pycache__
-codehub_env
 
 # Node
 .eslintcache
 node_modules
+
+# virtual environ
+.codehub_env/
