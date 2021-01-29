@@ -1,0 +1,87 @@
+
+/* nav styles */
+
+.nav{
+    background-color: var(--black-color);
+    color: var(--white-color);
+
+}
+.mail-account p,
+.mail-account i,
+.logo{
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    height: max-content;
+    width: max-content;
+}
+.search input{
+    height: 35px;
+    border: none;
+    outline: none;
+    width: 200px;
+    border-radius: 30px;
+    padding: 0 15px;
+}
+.btn-src{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    right: 20px;
+    top: 7.5px;
+    font-size: 1.2rem;
+    color: var(--black-color);
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+.search-menu{
+    display: flex;
+    align-items: center;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+.menu li{
+    display: block;
+    padding: 15px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.mail-account{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+
+#mail{
+    position: relative;
+    font-size: 2rem;
+    margin-right: 15px;
+}
+#total-mail{
+    border: 1px solid;
+    position: absolute;
+    background: var(--unsaturated-red);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    top: -15px;
+    right: -15px;
+    font-size: .8rem;
+}

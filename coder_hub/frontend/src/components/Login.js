@@ -1,4 +1,5 @@
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import '../static/login.css';
 
 const Login = () => {
     return (        

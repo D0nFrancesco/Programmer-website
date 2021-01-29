@@ -1,13 +1,13 @@
 
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 import Login from './components/Login'
 
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <Login /> */}
+      <Navbar />
+      <Login />
     </div>
   );
 }
