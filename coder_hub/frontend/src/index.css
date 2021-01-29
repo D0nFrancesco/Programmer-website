@@ -1,13 +1,241 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ 
+
+:root{
+    --black-color: rgb(40,40,40);
+    --light-dark-color: rgb(60,60,60);
+    --light-yellow-color: rgb(255,200,58);
+    --dark-yellow: rgb(255,154,62);
+    --unsaturated-red: rgb(255,56,56);
+    --white-color: rgb(246,246,246);
+    --pale-white-color: rgb(202,202,202);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, 
+::before,
+::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--pale-white-color);
+    color: var(--black-color);
+    font-size: 1.3rem;
+}
+p{
+    font-size: .8rem
+}
+ul{
+    list-style: none;
+}
+.nav{
+    background-color: var(--black-color);
+    color: var(--white-color);
+
+}
+.mail-account p,
+.mail-account i,
+.logo{
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    height: max-content;
+    width: max-content;
+}
+.search input{
+    height: 35px;
+    border: none;
+    outline: none;
+    width: 200px;
+    border-radius: 30px;
+    padding: 0 15px;
+}
+.btn-src{
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    right: 20px;
+    top: 7.5px;
+    font-size: 1.2rem;
+    color: var(--black-color);
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+.search-menu{
+    display: flex;
+    align-items: center;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+.menu li{
+    display: block;
+    padding: 15px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.mail-account{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+
+#mail{
+    position: relative;
+    font-size: 2rem;
+    margin-right: 15px;
+}
+#total-mail{
+    border: 1px solid;
+    position: absolute;
+    background: var(--unsaturated-red);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    top: -15px;
+    right: -15px;
+    font-size: .8rem;
+}
+/* 
+.toggle{
+    position: absolute;
+    right: 40px;
+    top: 30px;
+}
+input[type='checkbox']{
+    position: relative;
+    width: 50px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: var(--white-color);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 5px var(--black-color);
+    transition: .5s;
+}
+input:checked[type='checkbox']{
+    background-color: var(--black-color);
+    box-shadow: inset 0 0 5px var(--white-color);
+}
+input[type='checkbox']::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: var(--black-color);
+    box-shadow: 0 0 5px var(--white-color);
+    transition: .5s;
+    transform: scale(1.1);
+}
+input:checked[type='checkbox']::before{
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px var(--black-color);
+    left: 35px;
+
+} */
+
+/* sign page */
+.sign-in-container{
+    border: 1px solid;
+    padding: 30px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    box-shadow: 0 0 5px var(--black-color);
+    border: none;
+    outline: none;
+    margin: auto;
+    margin-top: 7.5%;
+    width: max-content;
+}
+.form{
+    margin: 10px 0;
+    padding-bottom: 20px;
+    border-bottom: .1px solid var(--light-dark-color);
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.third-party{
+    display: flex;
+    flex-direction: column;
+}
+.third-party p{
+    font-size: 1rem;
+    color: var(--light-dark-color);
+    margin: 10px auto;
+}
+.label{
+    color: var(--light-dark-color);
+    font-size: 1rem;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.input{
+    height: 30px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.input:focus{
+    outline-color: var(--light-yellow-color);
+}
+#submit{
+    background-color: var(--dark-yellow);
+    color: var(--white-color);
+    margin: 10px 60px 15px 0;
+}
+.btn{
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.btn-blue{
+    background-color: rgb(66 133 244);
+    color: var(--white-color);
+}
+#google,
+#github{    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--white-color);
+    font-size: 1.2rem;
+}
+#google{
+    margin-bottom: 10px;
+    background-color: rgb(219 68 55);
+}
+#github{
+    background-color: rgb(22,27,34);
 }
