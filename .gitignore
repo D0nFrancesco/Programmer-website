@@ -7,6 +7,7 @@ build
 
 # Pyhton
 __pycache__
+codehub_env
 
 # Node
 .eslintcache
