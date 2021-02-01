@@ -9,9 +9,6 @@ class User(models.Model):
     password_hash = models.BinaryField(blank=False)
     image = models.CharField(max_length=45)
 
-    class Meta:
-        db_table = "user"
-
     def __init__(self, username: str, email: str, password: str, image):
         """
         Create a new user object.
