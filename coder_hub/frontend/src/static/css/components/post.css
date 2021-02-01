@@ -1,0 +1,31 @@
+.post-user {
+    font-size: 14px;
+}
+
+.post-header, .post-header .post-information {
+    display: flex;
+    align-items: center;
+}
+
+.post-header {
+    justify-content: space-between;
+}
+
+.post-header h3 {
+    font-weight: bold;
+}
+
+.post-action-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-action-bar .votes, .post-action-bar .comments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-action-bar .icon {
+    width: 20px;
+}
