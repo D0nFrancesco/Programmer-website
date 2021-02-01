@@ -21,3 +21,8 @@ form input:focus, form textarea {
     border-bottom: 2px solid #FFC83A;
     border-radius: 5px 5px 0px 0px;
 }
+
+.small-text, .small-text * {
+    font-size: 14px;
+    color: #8a8a8a;
+}

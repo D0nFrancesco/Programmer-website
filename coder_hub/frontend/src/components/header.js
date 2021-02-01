@@ -9,7 +9,7 @@ function Header() {
 		<header>
 			<nav>
 				<nav>
-					<h1>CoderHub</h1>
+					<h1><Link to="/" className="no-link">CoderHub</Link></h1>
 					<ul>
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/projects">Projects</Link></li>
