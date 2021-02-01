@@ -11,3 +11,7 @@ __pycache__
 # Node
 .eslintcache
 node_modules
+
+# Personal
+## Put your personal ignores under here
+dog*
