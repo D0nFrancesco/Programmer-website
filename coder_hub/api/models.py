@@ -1,6 +1,12 @@
 from django.db import models
 from datetime import datetime as dt
+from datetime import timedelta
 import bcrypt
+
+
+# What is epoch?: https://en.wikipedia.org/wiki/Epoch
+EPOCH = dt(1970, 1, 1)
+CACHE_TIME = timedelta(minutes=5)
 
 
 class User(models.Model):
@@ -45,8 +51,38 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag)
 
     # votes
-    up_votes = models.ManyToManyField(User, related_name="up_voted_posts")
-    down_votes = models.ManyToManyField(User, related_name="down_voted_posts")
+    upvoted_by = models.ManyToManyField(User, related_name="up_voted_posts")
+    downvoted_by = models.ManyToManyField(User, related_name="down_voted_posts")
+
+    @property
+    def upvotes(self):
+        """
+        Returns the amount of upvotes, but only gets updated every 5 minute to save computation power
+        """
+        if dt.now() - self.upvotes_cached > CACHE_TIME:
+            self.__upvotes = self.objects.annotate(models.Count('upvoted_by'))
+        return self.__upvotes
+
+    @property
+    def downvotes(self):
+        """
+        Returns the amount of downvotes, but only gets updated every 5 minute to save computation power
+        """
+        if dt.now() - self.downvotes_cached > CACHE_TIME:
+            self.__downvotes = self.objects.annotate(models.Count('downvoted_by'))
+        return self.__downvotes
+
+    @classmethod
+    def from_db(cls, db, field_names, values):
+        obj = super().from_db(db, field_names, values)
+
+        # set cached on so long ago that it will always load the first time
+        obj.upvotes_cached = EPOCH
+        obj.downvotes_cached = EPOCH
+
+        # set values to 0 to begin with
+        obj.__upvotes = 0
+        obj.__downvotes = 0
 
     def __repr__(self) -> str:
         return f"<Post {(self.id, self.user.username, self.title, self.text[:10])}>"
