@@ -74,6 +74,9 @@ class Post(models.Model):
 
     @classmethod
     def from_db(cls, db, field_names, values):
+        """
+        This function is called when loading in the data from the database
+        """
         obj = super().from_db(db, field_names, values)
 
         # set cached on so long ago that it will always load the first time
