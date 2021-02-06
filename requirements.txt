@@ -1,5 +1,6 @@
 # django
 django
+rest_framework
 
 # for user authentication (password hashing)
 bcrypt
