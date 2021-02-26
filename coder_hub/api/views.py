@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import rest_framework
-
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from django.views.generic import TemplateView
+from post.models import Post
+from .serializers import PostSerializer
 
 # Create your views here.
 def index(request):
@@ -43,6 +45,16 @@ def register(request):
 # Logout page api endpoint
 def logout(request):
     return TemplateView.as_view(template_name="index.html")
+
+
+class PostListView(ListAPIView):
+    queryset = Post.objects.all()
+    serialize_class = PostSerializer
+
+class PostLisDetailView(ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
 
 
 

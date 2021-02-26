@@ -138,3 +138,11 @@ class Version(models.Model):
 
     def __repr__(self) -> str:
         return f"<Version db_version: {self.database_version}, website_version: {self.website_version}>"
+
+
+class Post(models.Model):
+    title = models.Charfield(max_length=120)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title

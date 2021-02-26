@@ -8,3 +8,7 @@ admin.site.register(Tag)
 admin.site.register(Comment)
 admin.site.register(Project)
 admin.site.register(Version)
+
+from .models import Post
+
+admin.site.register(Post)
