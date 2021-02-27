@@ -17,21 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 import api.views as views
 from django.views.generic import TemplateView
-from .views import ArticleListView, ArticleDetailView
 
 
 urlpatterns = [
-    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-]
-
-urlpatterns = [
-    path("", TemplateView.as_view(template_name="index.html")),
-    path('admin/', admin.site.urls),
-]
-
-urlpatterns =[
-    path('api-auth/', include('rest_framework.urls')),
-    path('admin/', admin.site.urls),
-    path('api/', include('post.api.urls'));
+    path('', views.PostListView.as_view()),  # not nessesary
+    path('<pk>', views.PostLisDetailView.as_view())
 ]

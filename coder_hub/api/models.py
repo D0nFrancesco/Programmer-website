@@ -15,15 +15,6 @@ class User(models.Model):
     password_hash = models.BinaryField(blank=False)
     image = models.CharField(max_length=45)
 
-    def __init__(self, username: str, email: str, password: str, image):
-        """
-        Create a new user object.
-        To save the user to the database call the function User.save()
-        """
-        salt = bcrypt.gensalt()
-        password_hash = bcrypt.hashpw(password, salt)
-        super().__init__(username=username, email=email, password_hash=password_hash, image=image)
-
     def auth(self, password: str) -> bool:
         """
         Returns True if the password matches and False if the password doesn't match.
@@ -87,6 +78,9 @@ class Post(models.Model):
         obj.__upvotes = 0
         obj.__downvotes = 0
 
+    def __str__(self) -> str:
+        return self.title
+
     def __repr__(self) -> str:
         return f"<Post {(self.id, self.user.username, self.title, self.text[:10])}>"
 
@@ -138,11 +132,3 @@ class Version(models.Model):
 
     def __repr__(self) -> str:
         return f"<Version db_version: {self.database_version}, website_version: {self.website_version}>"
-
-
-class Post(models.Model):
-    title = models.Charfield(max_length=120)
-    content = models.TextField()
-
-    def __str__(self):
-        return self.title

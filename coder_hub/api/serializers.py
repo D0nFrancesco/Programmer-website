@@ -1,7 +1,7 @@
-from .models import User, Post, Project, Comment, Votes, Version, Tag
+from .models import User, Post, Project, Comment, Version, Tag
 from rest_framework import serializers
 
 class PostSerializer(serializers.ModelSerializer):
-    classMeta:
-    model = Article
-    fields = ('title', 'content')
+    class Meta:
+        model = Post
+        fields = "__all__"
