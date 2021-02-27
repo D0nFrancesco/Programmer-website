@@ -1,6 +1,7 @@
 # django
 django
-rest_framework
+django-rest-framework
+django-cors-headers
 
 # for user authentication (password hashing)
 bcrypt

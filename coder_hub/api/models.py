@@ -63,21 +63,6 @@ class Post(models.Model):
             self.__downvotes = self.objects.annotate(models.Count('downvoted_by'))
         return self.__downvotes
 
-    @classmethod
-    def from_db(cls, db, field_names, values):
-        """
-        This function is called when loading in the data from the database
-        """
-        obj = super().from_db(db, field_names, values)
-
-        # set cached on so long ago that it will always load the first time
-        obj.upvotes_cached = EPOCH
-        obj.downvotes_cached = EPOCH
-
-        # set values to 0 to begin with
-        obj.__upvotes = 0
-        obj.__downvotes = 0
-
     def __str__(self) -> str:
         return self.title
 
