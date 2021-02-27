@@ -20,7 +20,8 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.PostListView.as_view()),  # not nessesary
-    path('<pk>', views.PostLisDetailView.as_view())
+    path('user/', views.UserListView.as_view()),
+    path('user/<pk>', views.UserListDetailView.as_view()),
+    path('post/', views.PostListView.as_view()),
+    path('post/<pk>', views.PostLisDetailView.as_view()),
 ]

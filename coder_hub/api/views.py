@@ -1,8 +1,16 @@
-import rest_framework
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from django.views.generic import TemplateView
-from .serializers import PostSerializer
-from .models import Post
+from .serializers import PostSerializer, UserSerializer
+from .models import Post, User
+
+
+class UserListView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserListDetailView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class PostListView(ListAPIView):
@@ -10,6 +18,6 @@ class PostListView(ListAPIView):
     serializer_class = PostSerializer
 
 
-class PostLisDetailView(ListAPIView):
+class PostLisDetailView(RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
