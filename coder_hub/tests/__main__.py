@@ -1,4 +1,5 @@
 from tests import TESTS
+import requests
 
 LOG_FILE_NAME = "tests/test.log"
 LOG_FILE = open(LOG_FILE_NAME, "w")
@@ -26,7 +27,11 @@ log("", verbose_item=True)
 
 for test_name in TESTS:
     test_func = TESTS[test_name]['test']
-    status_code, content = test_func()
+
+    try:
+        status_code, content = test_func()
+    except requests.exceptions.ConnectionError:
+        status_code, content = 0, "Connection refused"
 
     if status_code != 200:
         log(f"❌ Test '{test_name}' failed...", verbose_item=True, color='red')
