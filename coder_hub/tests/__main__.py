@@ -55,5 +55,5 @@ log("", verbose_item=True)
 if fails == 0:
     log("All tests succeeded, ready for launch 🚀", verbose_item=True, color='green')
 else:
-    log("Not all tests succeeded 😭... Back to work 👨‍💻", verbose_item=True, color='red')
+    log(f"{fails} task(s) failed 😭... Back to work 👨‍💻", verbose_item=True, color='red')
     log("For a more detailed view of why tests failed see: 'tests/test.log'", verbose_item=True)
