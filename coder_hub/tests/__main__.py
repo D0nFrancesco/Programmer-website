@@ -1,4 +1,4 @@
-from tests import test_001, test_002
+from tests import TESTS
 
 LOG_FILE_NAME = "tests/test.log"
 LOG_FILE = open(LOG_FILE_NAME, "w")
@@ -19,31 +19,31 @@ def log(text, verbose_item=False, color="white"):
     LOG_FILE.write(f"{text}\n")
 
 
-TESTS = {
-    "test_001": test_001,
-    "test_002": test_002,
-}
 fails = 0
 
 log(f"Running {len(TESTS)} test(s)", verbose_item=True)
 log("", verbose_item=True)
 
 for test_name in TESTS:
-    test = TESTS[test_name]
-    status_code, content = test()
+    test_func = TESTS[test_name]['test']
+    status_code, content = test_func()
 
     if status_code != 200:
         log(f"❌ Test '{test_name}' failed...", verbose_item=True, color='red')
-        log(f"\tstatus_code: {status_code}, server response:\n\t\t{content}")
-
-        if status_code == 404:
-            log(f"\tStatus code is: {status_code}, either the URL doesn't work, or there is no object with that ID.")
 
         fails += 1
     else:
         log(f"✅ Test '{test_name}' succeeded", verbose_item=True, color='green')
-        log(f"\tstatus_code: {status_code}, server response:\n\t\t{content}")
 
+    log(f"\tAbout: {TESTS[test_name]['about']}")
+    log("")
+
+    if status_code == 404:
+        log(f"\tStatus code is: {status_code}, either the URL doesn't work, or there is no object with that ID.")
+
+    log(f"\tstatus_code: {status_code}, server response:\n\t\t{content}")
+
+    log("")
     log("")
 
 log("", verbose_item=True)
