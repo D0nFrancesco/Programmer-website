@@ -1,33 +1,43 @@
-/* Header */
+/* header */
 header {
-    background-color: #272727;
-    padding: 10px 30px;
-}
-
-nav h1 {
     display: flex;
     align-items: center;
-    font-size: 25px;
+    height: 14vh;
+    background-color: #1b1b1b;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
+header nav {
+    flex: 1;
+    text-align: left;
+    margin-left: 30px;
 }
 
-nav ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: space-between;
+header nav li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
 }
 
-nav ul li {
-    display: flex;
-    align-items: center;
+header nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav ul li a {
-    padding: 5px 20px;
+.login li {
+    display: inline-block;
+    margin-right: 20px;
+    list-style: none;
+}
+
+.login li:last-child {
+    margin: 0;
+}
+
+.login li a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
