@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 import api.views as views
 from django.views.generic import TemplateView
-
+from .views import PostListView
 
 urlpatterns = [
     path('user/', views.UserListView.as_view()),
     path('user/<pk>', views.UserListDetailView.as_view()),
     path('post/', views.PostListView.as_view()),
     path('post/<pk>', views.PostLisDetailView.as_view()),
+    path('', PostListView.as_view(), name='blog-home'),
 ]
+
+
+# <app>/<model>_<viewtype>.html
