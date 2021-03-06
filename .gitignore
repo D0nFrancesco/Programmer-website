@@ -12,6 +12,10 @@ __pycache__
 .eslintcache
 node_modules
 
+# Testing
+*.log
+*/tests/config.py
+
 # Personal
 ## Put your personal ignores under here
 dog*
