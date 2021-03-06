@@ -78,8 +78,6 @@ def api_update_comment_view(request, slug):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
-
 @api_view(['DELETE', ])
 def api_delete_comment_view(request, slug):
 
@@ -97,8 +95,6 @@ def api_delete_comment_view(request, slug):
                 data["failure"] = "delete failed"
                 return Response(data=data)
                 
-
-
 
 @api_view(['POST', ])
 def api_create_comment_view(request):
