@@ -38,15 +38,14 @@ class TagSerializer(ModelSerializer):
     class Meta:
         model = Tag
         fields = "__all__"
+    
 
 class PostListView(ListView):
     model = Post
 
 
 
-
-
-
+#Comment Serializer
 @api_view(['GET', ])
 def api_detail_comment_view(request, slug):
 
@@ -59,7 +58,7 @@ def api_detail_comment_view(request, slug):
         serializer = CommentPostSerializer(comment_post)
         return Response(serializer.Data)
 
-
+#Comment Serializer
 @api_view(['PUT', ])
 def api_update_comment_view(request, slug):
 
@@ -77,7 +76,7 @@ def api_update_comment_view(request, slug):
             return Response(data=data)        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+#Comment Serializer
 @api_view(['DELETE', ])
 def api_delete_comment_view(request, slug):
 
@@ -95,7 +94,7 @@ def api_delete_comment_view(request, slug):
                 data["failure"] = "delete failed"
                 return Response(data=data)
                 
-
+#Comment Serializer
 @api_view(['POST', ])
 def api_create_comment_view(request):
 
@@ -111,4 +110,15 @@ if request.methode == 'POST':
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+#Tag Serializer
+@api_view(['GET', ])
+def api_detail_tag_view(request, slug):
 
+    try:
+        tag_name = TagName.objects.get(slug=slug)
+    except Tag.Name.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = TagNameSerializer(tag_name)
+        return Response(serializer.Data)
