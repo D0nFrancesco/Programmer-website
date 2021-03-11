@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'frontend_server.apps.FrontendServerConfig',
     'rest_framework',
     'corsheaders',
+    
+
 ]
 
 MIDDLEWARE = [
